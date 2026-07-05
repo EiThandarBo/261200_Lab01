@@ -1,15 +1,41 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Initialize the turtle
+        Turtle bob = new Turtle();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Set a bright summer background
+        Turtle.bgcolor("white");
+
+        // Speed up the turtle so drawing doesn't take too long
+        bob.speed(5);
+
+        // Move turtle to the starting position for the sun rays
+        bob.up();
+        bob.setPosition(0, 0);
+        bob.down();
+
+        // Configure pen for the sun rays
+        bob.penColor("orange");
+        bob.width(4);
+
+        // Draw 36 sun rays using a basic loop
+        for (int i = 0; i < 36; i++) {
+            bob.forward(150);
+            bob.backward(150);
+            bob.left(10); // Rotate 10 degrees for the next ray
         }
+
+        // Draw the center of the sun using a stamp
+        bob.up();
+        bob.setPosition(0, 0);
+        bob.shape("circle");
+        bob.shapeSize(170, 170);
+        bob.fillColor("gold");
+        bob.outlineColor("darkorange");
+        bob.outlineWidth(3);
+        bob.stamp();
+
+        // Hide the turtle cursor when finished
+        bob.hide();
     }
 }
